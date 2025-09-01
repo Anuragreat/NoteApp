@@ -10,8 +10,6 @@ public class JwtUtil {
     public static String generateToken(String email) {
         return Jwts.builder()
                 .setSubject(email)
-                .claim("email", email)  //test del
-                .claim("fullName", fullName) //test del
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + 86400000))
                 .signWith(Keys.hmacShaKeyFor(SECRET.getBytes()))
